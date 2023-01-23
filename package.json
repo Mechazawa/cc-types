@@ -1,0 +1,39 @@
+{
+  "name": "cc-types",
+  "version": "1.0.0",
+  "description": "Typescript definitions for ComputerCraft:Tweaked",
+  "author": "Mechazawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mechazawa/cc-types/issues"
+  },
+  "homepage": "https://github.com/Mechazawa/cc-types#readme",
+  "scripts": {
+    "lint": "prettier --write types package.json"
+  },
+  "files": [
+    "**/*.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mechazawa/cc-types.git"
+  },
+  "keywords": [
+    "lua",
+    "typescript",
+    "tstl",
+    "computercraft"
+  ],
+  "prettier": {
+    "printWidth": 100,
+    "tabWidth": 2,
+    "proseWrap": "never",
+    "singleQuote": true
+  },
+  "peer-dependencies": {
+    "@typescript-to-lua/language-extensions": "^1.0.0"
+  },
+  "dependencies": {
+    "prettier": "^2.8.3"
+  }
+}
