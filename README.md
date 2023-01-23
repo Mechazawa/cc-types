@@ -5,6 +5,26 @@ This repo contains type definitions for ComputerCraft:Tweaked.
 
 Feel free to make a pull request containing improvements or missing implimentations.
 
+## Installation
+1. Install the package
+```bash
+npm install --include=dev @mechazawa/cc-types
+```
+
+2. Modify your `tsconfig.json`
+```diff
+{
+  "compilerOptions": {
++   "types": [
++     "@typescript-to-lua/language-extensions",
++     "@mechazawa/cc-types"
++   ]
+  }
+}
+```
+
+## Progress
+
 Done:
 - [ ] Globals
   - [x] _G
