@@ -1,5 +1,7 @@
+/// <reference path="../../peripheral.d.ts" />
+
 /** @noSelf */
-declare interface EnergyStorage extends WrappedPeripheral {
+declare interface EnergyStorage extends peripheral.WrappedPeripheral {
   /**
    * Get the energy of this block.
    * @returns The energy stored in this block, in FE.

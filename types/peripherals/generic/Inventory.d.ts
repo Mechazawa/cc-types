@@ -1,5 +1,16 @@
+/// <reference path="../../peripheral.d.ts" />
+
+declare interface ItemStack {
+  count: number;
+  displayName: string;
+  maxCount: number;
+  name: string;
+  nbt: string;
+  tags: LuaMap<string, boolean>;
+}
+
 /** @noSelf */
-declare interface Inventory extends WrappedPeripheral {
+declare interface Inventory extends peripheral.WrappedPeripheral {
   /**
    * Get the size of this inventory.
    * @returns The number of slots in this inventory.

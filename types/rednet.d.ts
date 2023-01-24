@@ -33,23 +33,23 @@
  * @see rednet_message Queued when a rednet message is received.
  * @see modem Rednet is built on top of the modem peripheral. Modems provide a more
  * bare-bones but flexible interface.
- * @noSelf
+ * @noSelfInFile
  */
-declare interface Rednet {
+declare namespace rednet {
   /**
    * The channel used by the Rednet API to @{broadcast} messages.
    */
-  CHANNEL_BROADCAST: number;
+  const CHANNEL_BROADCAST: number;
 
   /**
    * The channel used by the Rednet API to repeat messages.
    */
-  CHANNEL_REPEAT: number;
+  const CHANNEL_REPEAT: number;
 
   /** The number of channels rednet reserves for computer IDs. Computers with IDs
    * greater or equal to this limit wrap around to 0.
    */
-  MAX_ID_CHANNELS: number;
+  const MAX_ID_CHANNELS: number;
 
   /** Opens a modem with the given @{peripheral} name, allowing it to send and
    * receive messages over rednet.
@@ -60,14 +60,14 @@ declare interface Rednet {
    * @throws If there is no such modem with the given name
    * @usage Open rednet on the back of the computer, allowing you to send and receive
    * rednet messages using it.
-   *     rednet.open("back")
+   *     rednet.function open("back")
    * @usage Open rednet on all attached modems. This abuses the "filter" argument to
    * @{peripheral.find}.
-   *     peripheral.find("modem", rednet.open)
+   *     peripheral.function find("modem", rednet.open)
    * @see rednet.close
    * @see rednet.isOpen
    */
-  open(modem: string): void;
+  function open(modem: string): void;
 
   /** Close a modem with the given @{peripheral} name, meaning it can no longer
    * send and receive rednet messages.
@@ -76,7 +76,7 @@ declare interface Rednet {
    * @throws If there is no such modem with the given name
    * @see rednet.open
    */
-  close(modem?: string): void;
+  function close(modem?: string): void;
 
   /** Determine if rednet is currently open.
    *
@@ -86,7 +86,7 @@ declare interface Rednet {
    * @since 1.31
    * @see rednet.open
    */
-  isOpen(modem: string): boolean;
+  function isOpen(modem: string): boolean;
 
   /** Allows a computer or turtle with an attached modem to send a message
    * intended for a sycomputer with a specific ID. At least one such modem must first
@@ -108,9 +108,9 @@ declare interface Rednet {
    * @changed 1.82.0 Now returns whether the message was successfully sent.
    * @see rednet.receive
    * @usage Send a message to computer #2.
-   *     rednet.send(2, "Hello from rednet!")
+   *     rednet.function send(2, "Hello from rednet!")
    */
-  send(
+  function send(
     recipient: number,
     message: object | LuaMap | string | number | boolean,
     protocol?: string
@@ -126,9 +126,9 @@ declare interface Rednet {
    * @see rednet.receive
    * @changed 1.6 Added protocol parameter.
    * @usage Broadcast the words "Hello, world!" to every computer using rednet.
-   *     rednet.broadcast("Hello, world!")
+   *     rednet.function broadcast("Hello, world!")
    */
-  broadcast(message: LuaMap | string | number | boolean, protocol?: string): boolean;
+  function broadcast(message: LuaMap | string | number | boolean, protocol?: string): boolean;
 
   /** Wait for a rednet message to be received, or until `nTimeout` seconds have
    * elapsed.
@@ -141,23 +141,23 @@ declare interface Rednet {
    * @see rednet.send
    * @changed 1.6 Added protocol filter parameter.
    * @usage Receive a rednet message.
-   *     local id, message = rednet.receive()
-   *     print(("Computer %d sent message %s"):format(id, message))
+   *     local id, message = rednet.function receive()
+   *     function print(("Computer %d sent message %s"):function format(id, message))
    * @usage Receive a message, stopping after 5 seconds if no message was received.
-   *     local id, message = rednet.receive(nil, 5)
+   *     local id, message = rednet.function receive(nil, 5)
    *     if not id then
-   *         printError("No message received")
+   *         function printError("No message received")
    *     else
-   *         print(("Computer %d sent message %s"):format(id, message))
+   *         function print(("Computer %d sent message %s"):function format(id, message))
    *     end
    * @usage Receive a message from computer #2.
    *     local id, message
    *     repeat
-   *         id, message = rednet.receive()
+   *         id, message = rednet.function receive()
    *     until id == 2
-   *     print(message)
+   *     function print(message)
    */
-  receive(
+  function receive(
     protocol_filter?: string,
     timeout?: number
   ): LuaMultiReturn<
@@ -181,7 +181,7 @@ declare interface Rednet {
    * @see rednet.lookup
    * @since 1.6
    */
-  host(protocol: string, hostname: string): void;
+  function host(protocol: string, hostname: string): void;
 
   /** Stop @{rednet.host|hosting} a specific protocol, meaning it will no longer
    * respond to @{rednet.lookup} requests.
@@ -189,7 +189,7 @@ declare interface Rednet {
    * @param protocol The protocol to unregister your self from.
    * @since 1.6
    */
-  unhost(protocol: string): void;
+  function unhost(protocol: string): void;
 
   /** Search the local rednet network for systems @{rednet.host|hosting} the
    * desired protocol and returns any computer IDs that respond as "registered"
@@ -203,20 +203,20 @@ declare interface Rednet {
    * or @{nil} if none exists.
    * @since 1.6
    * @usage Find all computers which are hosting the `"chat"` protocol.
-   *     local computers = {rednet.lookup("chat")}
-   *     print(#computers .. " computers available to chat")
-   *     for _, computer in pairs(computers) do
-   *       print("Computer #" .. computer)
+   *     local computers = {rednet.function lookup("chat")}
+   *     function print(#computers .. " computers available to chat")
+   *     for _, computer in function pairs(computers) do
+   *       function print("Computer #" .. computer)
    *     end
    * @usage Find a computer hosting the `"chat"` protocol with a hostname of `"my_host"`.
-   *     local id = rednet.lookup("chat", "my_host")
+   *     local id = rednet.function lookup("chat", "my_host")
    *     if id then
-   *       print("Found my_host at computer #" .. id)
+   *       function print("Found my_host at computer #" .. id)
    *     else
-   *       printError("Cannot find my_host")
+   *       function printError("Cannot find my_host")
    *     end
    */
-  lookup(protocol: string, hostname?: string): LuaMultiReturn<number[]> | number | undefined;
+  function lookup(protocol: string, hostname?: string): LuaMultiReturn<number[]> | number | undefined;
 
   /** Listen for modem messages and converts them into rednet messages, which may
    * then be @{receive|received}.
@@ -224,5 +224,5 @@ declare interface Rednet {
    * This is automatically started in the background on computer startup, and
    * should not be called manually.
    */
-  run(): void;
+  function run(): void;
 }

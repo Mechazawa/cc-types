@@ -1,3 +1,5 @@
+/// <reference path="./HandleGeneric.d.ts" />
+
 /** @noSelf */
 declare interface BinaryWriteHandle extends HandleGeneric {
   write(value: string | number): void;

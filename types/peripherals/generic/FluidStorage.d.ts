@@ -1,5 +1,7 @@
+/// <reference path="../../peripheral.d.ts" />
+
 /** @noSelf */
-declare interface FluidStorage extends WrappedPeripheral {
+declare interface FluidStorage extends peripheral.WrappedPeripheral {
   /**
    * Get all "tanks" in this fluid storage.
    */

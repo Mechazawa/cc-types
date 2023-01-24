@@ -11,14 +11,3 @@ declare function read(
   completeFn?: (partial: string) => string[] | undefined,
   _default?: string
 ): string;
-
-declare const fs: FS;
-declare const os: OS;
-declare const colors: Colors;
-declare const turtle: Turtle;
-declare const peripheral: Peripheral;
-declare const commands: Commands;
-declare const term: Term;
-declare const rednet: Rednet;
-declare const textutils: Textutils;
-declare const parallel: Parallel;

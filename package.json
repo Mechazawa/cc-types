@@ -1,6 +1,6 @@
 {
   "name": "@mechazawa/cc-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript definitions for ComputerCraft:Tweaked",
   "author": "Mechazawa",
   "license": "MIT",
@@ -34,6 +34,7 @@
     "@typescript-to-lua/language-extensions": "^1.0.0"
   },
   "dependencies": {
+    "@typescript-to-lua/language-extensions": "^1.0.0",
     "prettier": "^2.8.3"
   }
 }
