@@ -9,3 +9,4 @@
 /// <reference path="./types/term.d.ts" />
 /// <reference path="./types/textutils.d.ts" />
 /// <reference path="./types/turtle.d.ts" />
+/// <reference path="./types/modules/cc.pretty.d.ts" />
