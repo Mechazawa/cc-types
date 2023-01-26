@@ -128,7 +128,7 @@ declare namespace rednet {
    * @usage Broadcast the words "Hello, world!" to every computer using rednet.
    *     rednet.function broadcast("Hello, world!")
    */
-  function broadcast(message: LuaMap | string | number | boolean, protocol?: string): boolean;
+  function broadcast(message: object | LuaMap | string | number | boolean, protocol?: string): boolean;
 
   /** Wait for a rednet message to be received, or until `nTimeout` seconds have
    * elapsed.
