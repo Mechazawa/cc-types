@@ -7,7 +7,7 @@ declare function print(text: string): number;
 declare function printError(...args: any[]): void;
 declare function read(
   replaceChar?: string,
-  history?: LuaMap,
+  history?: string[],
   completeFn?: (partial: string) => string[] | undefined,
   _default?: string
 ): string;
