@@ -68,5 +68,5 @@ declare interface Window extends Redirect {
    * @param new_height The new height of this window.
    * @param new_parent The new redirect object this window should draw to.
    */
-  reposition(new_x: number, new_y: number, new_width?: number, new_height?: number, new_parent?: Redirect);
+  reposition(new_x: number, new_y: number, new_width?: number, new_height?: number, new_parent?: Redirect): void;
 }
