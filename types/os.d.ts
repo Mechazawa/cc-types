@@ -48,7 +48,7 @@ declare namespace os {
    *     end
    * @see os.pullEventRaw To pull the terminate event.
    */
-  function pullEvent(filter?: string[]): LuaMultiReturn<[string, ...any]>;
+  function pullEvent(filter?: string): LuaMultiReturn<[string, ...any]>;
 
   /**
    * Pause execution of the current thread and waits for events, including the`terminate` event.
@@ -67,7 +67,7 @@ declare namespace os {
    *     end
    * @see os.pullEvent To pull events normally.
    */
-  function pullEventRaw(filter?: string[]): LuaMultiReturn<[string, ...any]>;
+  function pullEventRaw(filter?: string): LuaMultiReturn<[string, ...any]>;
 
   /**
    * Pauses execution for the specified number of seconds, alias of _G.sleep.
