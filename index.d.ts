@@ -2,6 +2,7 @@
 /// <reference path="./types/colors.d.ts" />
 /// <reference path="./types/commands.d.ts" />
 /// <reference path="./types/fs.d.ts" />
+/// <reference path="./types/keys.d.ts" />
 /// <reference path="./types/os.d.ts" />
 /// <reference path="./types/parallel.d.ts" />
 /// <reference path="./types/peripheral.d.ts" />

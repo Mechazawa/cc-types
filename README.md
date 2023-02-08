@@ -37,7 +37,7 @@ Done:
   - [ ] help
   - [ ] http
   - [ ] io
-  - [ ] keys
+  - [x] keys
   - [ ] multishell
   - [x] os
   - [ ] paintutils
